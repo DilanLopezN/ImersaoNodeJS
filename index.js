@@ -10,10 +10,10 @@ async function getUser() {
 getUser()
 async function showUser() {
   const user = await getUser()
-  const userData = user[0].name.first
-  const userId = document.getElementById('username')
-  userId.textContent = userData
-
-  console.log(userName)
+  const userData = user[0]
+  const userId = document.getElementById('userName')
+  const userImage = document.getElementById('userImage')
+  userId.textContent = userData.name.first
+  userImage.src = userData.picture.large
 }
 showUser()
