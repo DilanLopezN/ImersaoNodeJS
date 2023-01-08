@@ -13,6 +13,8 @@ async function showUser() {
   const userData = user[0]
   const userId = document.getElementById('userName')
   const userImage = document.getElementById('userImage')
+  const userAdress = document.getElementById('adress')
+  userAdress.textContent = userData.location.street.number
   userId.textContent = userData.name.first
   userImage.src = userData.picture.large
 }
