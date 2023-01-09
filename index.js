@@ -1,5 +1,5 @@
 console.log('hello world')
-
+//CONSUMINDO API RANDOM USER
 async function getUser() {
   const response = await fetch(
     'https://randomuser.me/api/?page=3&results=10&seed=abc'
