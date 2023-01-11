@@ -43,6 +43,22 @@ class Database {
 
     return await this.escreverArquivo(dados)
   }
+
+  async atualizar(id, modificacoes) {
+    const dados = await this.obterDadosArquivo()
+    const indice = dados.findIndex(item => item.id === parseInt(id))
+    if (indice === -1) {
+      throw Error('heroi informado não existe')
+    }
+
+    const atual = dados[indice]
+    dados.splice(indice, 1)
+
+    const objAtualizado = JSON.parse(JSON.stringify(modificacoes))
+    const dadoAtualizado = Object.assign({}, atual, objAtualizado)
+
+    return await this.escreverArquivo([...dados, dadoAtualizado])
+  }
 }
 
 export default new Database()
